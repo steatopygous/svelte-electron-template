@@ -1,4 +1,9 @@
-# Svelte + Electron boilerplate
+# Svelte + Electron Template
+
+NOTE: THIS IS A WORK IN PROGRESS AND SHOULD
+NOT BE USED UNTIL THIS WARNING HAS BEEN REMOVED ... HOPEFULLY SOMETIME SOON :-)
+
+I've only pushed it back to GitHub so that I can pull it down on my other Mac.
 
 This is a template for creating applications using a combination of [Svelte](https://svelte.dev), [ElectronJS](https://electronjs.com/), and the Node-SASS preprocessor.
 
