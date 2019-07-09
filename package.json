@@ -19,6 +19,8 @@
   "scripts": {
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
+    "package-mac": "sh scripts/package-mac.sh",
+    "sign-mac-app": "sh scripts/sign-mac-app.sh",
     "dev": "concurrently \"run-p start:dev autobuild\" \"electron .\"",
     "start": "sirv public",
     "start:dev": "sirv public --dev"

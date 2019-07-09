@@ -1,17 +1,19 @@
-# Sveltron boilerplate
+# Svelte + Electron boilerplate
 
-This is a boilerplate for [Svelte](https://svelte.dev) using [ElectronJS](https://electronjs.com/), with SASS as preprocessor.
+This is a template for creating applications using a combination of [Svelte](https://svelte.dev), [ElectronJS](https://electronjs.com/), and the Node-SASS preprocessor.
 
-To create a new project based on this boilerplate:
+It is based on Blade67's [Sveltron](https://github.com/Blade67/Sveltron) boilerplate.
+
+To create a new project :
 
 ```bash
-git clone https://github.com/Blade67/Sveltron
+npx degit steatopygous/svelte-electron-template your-app-name
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+*Note that you will need to have [NodeJS](https://nodejs.org) installed.*
 
 
-## Get started
+## Getting started
 
 Install the dependencies...
 
@@ -26,14 +28,14 @@ npm install
 npm run dev
 ```
 
-Your app should now be up and running! Edit a component file in `src` and your app in the `main.js`, save it, and reload (CTRL+R) the app to see your changes.
+If everything worked correctly, you should see a window
+displaying the version numbers of the various components that
+are being used to build your app.  
+
+Edit a component file in `src` and your app in the `main.js`, save it, and reload the app (Ctrl/Cmd + R) to see your changes.
 
 ## SASS/SCSS
-**This has only been tested with VS Code, mileage may vary!**
-If you'd rather use SASS instead of SCSS, change `<style type="text/scss">` to `<style type="text/sass">` in your `src/App.svelte`, or remove the `type` tag entirely, to use vanilla CSS.
-
-*Note you might need to add `"svelte.language-server.runtime": "file:///path/to/your/node.exe"` to your VS Code preferences if you're using the Svelte extension, and want propper syntax highlighting.*
-
+UPDATE THIS
 
 ## Compile app
 
@@ -46,8 +48,24 @@ Svelte [[X]](https://svelte.dev) <br>
 Node-Sass [[X]](https://www.npmjs.com/package/node-sass) <br>
 
 
-## Socal media
+## Social media
+
+You can interact with Blade67 via these social media...
 
 Twitter [[X]](https://twitter.com/Blade67470) <br>
 Reddit [[X]](https://www.reddit.com/user/Blade67470) <br>
 Discord `Blade#6667`
+
+## Packaging your app for MacOS
+
+Two scripts are provided:
+ 
+- **scripts/package-mac** packages
+your Electron app as a MacOS app in **release-builds**.
+- **scripts/sign-mac-app** signs the app, so that it
+will run smoothly (MacOS penlises unsigned apps by slowing them down) 
+
+Note that in order to sign your app, you will need to set two environment
+variables: **APP_NAME** and **SIGNATURE**.
+
+TODO: Add documentation, or a link to a site, that explains how to get a signature.
