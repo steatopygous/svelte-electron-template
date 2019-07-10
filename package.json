@@ -2,6 +2,15 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "main": "main.js",
+  "scripts": {
+    "build": "rollup -c",
+    "autobuild": "rollup -c -w",
+    "package-mac": "sh scripts/package-mac.sh",
+    "sign-mac-app": "sh scripts/sign-mac-app.sh",
+    "dev": "concurrently \"run-p start:dev autobuild\" \"electron .\"",
+    "start": "sirv public",
+    "start:dev": "sirv public --dev"
+  },
   "devDependencies": {
     "concurrently": "^4.1.0",
     "electron": "^5.0.2",
@@ -15,14 +24,5 @@
     "rollup-plugin-terser": "^4.0.4",
     "sirv-cli": "^0.4.0",
     "svelte": "^3.0.0"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "autobuild": "rollup -c -w",
-    "package-mac": "sh scripts/package-mac.sh",
-    "sign-mac-app": "sh scripts/sign-mac-app.sh",
-    "dev": "concurrently \"run-p start:dev autobuild\" \"electron .\"",
-    "start": "sirv public",
-    "start:dev": "sirv public --dev"
   }
 }
