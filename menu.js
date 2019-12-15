@@ -28,7 +28,7 @@ function buildMenuTemplate(app, store, mainWindow) {
                     label: 'Open...',
                     accelerator: onMac ? 'Command+O' : 'Ctrl+O',
 
-                    click() { selectItem(app, store, mainWindow); }
+                    click() { selectFolder(app, store, mainWindow); }
                 },
                 {
                     label: 'Save',
@@ -36,12 +36,12 @@ function buildMenuTemplate(app, store, mainWindow) {
 
                     click() { saveItem(mainWindow); }
                 },
-                {
-                    label: 'Open Recent',
-                    id: 'FileOpenRecent',
-
-                    submenu: recentProjectItems
-                }
+                // {
+                //     label: 'Open Recent',
+                //     id: 'FileOpenRecent',
+                //
+                //     submenu: recentProjectItems
+                // }
             ]
         },
         // {
@@ -159,12 +159,52 @@ function buildMenuTemplate(app, store, mainWindow) {
     return template;
 }
 
-function selectItem() {
+function selectFolder(app, store, mainWindow) {
+    const properties = ['openDirectory'];
+    const filters = [{ name: '<ITEMS>', extensions: ['js', 'html', 'scss'] }];
+    const options = { properties, filters };
 
+    dialog.showOpenDialog(options)
+        .then(selectedPaths => {
+            console.log('selectedPaths =', selectedPaths);
+
+            if (selectedPaths) {
+                const path = selectedPaths.filePaths[0];
+
+                openItem(app, store, mainWindow, path);
+            } else {
+                console.log(`You didn't choose a file!`);
+            }
+        })
+}
+
+function selectFile(app, store, mainWindow) {
+    const properties = ['openFile', 'openDirectory'];
+    const filters = [{ name: '<ITEMS>', extensions: ['js', 'html', 'scss'] }];
+    const options = { properties, filters };
+
+    dialog.showOpenDialog(options)
+        .then(selectedPaths => {
+            console.log('selectedPaths =', selectedPaths);
+
+            if (selectedPaths) {
+                const path = selectedPaths.filePaths[0];
+
+                openItem(app, store, mainWindow, path);
+            } else {
+                console.log(`You didn't choose a file!`);
+            }
+        })
 }
 
 function saveItem() {
 
+}
+
+function openItem(app, store, mainWindow, path) {
+    const message = `Path to chosen item is ${path}`;
+
+    console.error(message);
 }
 
 function showHelpPage() {
