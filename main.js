@@ -9,6 +9,14 @@ const { buildMenu } = require('./menu');
 
 let mainWindow;
 
+let debug = false;
+
+app.setDebug = setDebug;
+
+function setDebug(value) {
+  debug = value;
+}
+
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,

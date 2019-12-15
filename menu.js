@@ -166,7 +166,7 @@ function selectFolder(app, store, mainWindow) {
 
     dialog.showOpenDialog(options)
         .then(selectedPaths => {
-            console.log('selectedPaths =', selectedPaths);
+            // console.log('selectedPaths =', selectedPaths);
 
             if (selectedPaths) {
                 const path = selectedPaths.filePaths[0];
